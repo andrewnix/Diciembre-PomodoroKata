@@ -1,0 +1,91 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class Pomodoro
+{
+    public:
+        Pomodoro();
+        ~Pomodoro();
+
+        string start(unsigned int);
+        string start();
+        string stop();
+        string pause();
+
+        void setTime(unsigned int);
+        void setInterrup(unsigned int interrupciones);
+        int getInterrup();
+        int getTime();
+
+    private:
+        unsigned int time;
+        unsigned int interrupciones;
+};
+
+/*
+ * Inicializa el objeto Pomodoro con los valores por defecto
+*/
+Pomodoro::Pomodoro()
+{
+    this->time = 25;
+    this->interrupciones = 0;
+
+}
+
+/*
+ * Finaliza el objeto Pomodoro
+*/
+Pomodoro::~Pomodoro()
+{
+
+}
+
+string Pomodoro::start(unsigned int minutos)
+{
+
+    setTime(minutos);
+
+    cout << "Tiempo establecido: " << getTime() << endl;
+    cout << "Numero de interrupciones: " << getInterrup() << endl;
+}
+
+string Pomodoro::start()
+{
+    cout << "Arrancando pomodoro" << endl;
+    cout << "Tiempo establecido: " << getTime() << endl;
+    cout << "Numero de interrupciones: " << getInterrup() << endl;
+}
+
+string Pomodoro::stop()
+{
+    time = 0;
+    interrupciones = 0;
+}
+
+string Pomodoro::pause()
+{
+    getTime();
+    setInterrup(1);
+    getInterrup();
+}
+
+void Pomodoro::setTime(unsigned int minutos)
+{
+    this->time = minutos;
+}
+
+void Pomodoro::setInterrup(unsigned int paramInter)
+{
+    interrupciones = paramInter;
+}
+
+int Pomodoro::getTime()
+{
+    return time;
+}
+
+int Pomodoro::getInterrup()
+{
+    return interrupciones;
+}
