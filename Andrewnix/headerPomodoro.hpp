@@ -61,9 +61,8 @@ Pomodoro::~Pomodoro()
 string Pomodoro::start(int minutos)
 {
     setTime(minutos);
-    cout << "Arrancando pomodoro" << endl;
-    cout << "Tiempo establecido: " << getTime() << endl;
-    cout << "Numero de interrupciones: " << getInterrup() << endl;
+    cout << "\nArrancando pomodoro" << endl;
+    cout << "Tiempo restante: " << getTime() << endl;
 
     return "Pomodoro corriendo!!!";
 }
@@ -74,9 +73,8 @@ string Pomodoro::start(int minutos)
 */
 string Pomodoro::start()
 {
-    cout << "Arrancando pomodoro" << endl;
-    cout << "Tiempo establecido: " << getTime() << endl;
-    cout << "Numero de interrupciones: " << getInterrup() << endl;
+    cout << "\nArrancando pomodoro" << endl;
+    cout << "Tiempo restante: " << getTime() << endl;
 
     return "Pomodoro corriendo!!!";
 }
@@ -87,7 +85,7 @@ string Pomodoro::start()
 */
 string Pomodoro::stop()
 {
-    cout << "Deteniendo pomodoro";
+    cout << "\nDeteniendo pomodoro" << endl;
     setTime(25);
     setInterrup(0);
 
@@ -100,9 +98,9 @@ string Pomodoro::stop()
 */
 string Pomodoro::pause()
 {
-    getTime();
+    cout << "\nEl pomodoro se pauso en el minuto: " << getTime() << endl;
     setAddInterrup();
-    getInterrup();
+    cout << "Numero de interrupciones: " << getInterrup() << endl;
 
     return "pomodoro pausado!!!";
 }
