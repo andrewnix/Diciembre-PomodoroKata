@@ -102,7 +102,7 @@ string Pomodoro::pause()
     setAddInterrup();
     cout << "Numero de interrupciones: " << getInterrup() << endl;
 
-    return "pomodoro pausado!!!";
+    return "Pomodoro pausado!!!";
 }
 
 
