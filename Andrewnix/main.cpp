@@ -7,6 +7,7 @@
 */
 
 #include <iostream>
+#include <ncurses.h>
 #include "headerPomodoro.hpp"
 
 using namespace std;
@@ -19,19 +20,28 @@ using namespace std;
 */
 int main()
 {
-    Pomodoro pomodoro;
-    pomodoro.start();
-    pomodoro.pause();
-    pomodoro.start();
-    pomodoro.pause();
-    pomodoro.start();
-    pomodoro.stop();
+    /*initscr();
+    erase();
+    refresh();*/
+
+    Pomodoro p1;
+    p1.start();
+    p1.pause();
+    p1.start();
+    p1.stop();
+
+    /*refresh();
 
     for(int i = 1; i <= 3; i++)
     {
-        cout << "\nhola" << i;
+        printw("h %d", i);
+        refresh();
         sleep(1);
+        erase();
+        refresh();
     }
+
+    endwin();*/
 
     return 0;
 }
