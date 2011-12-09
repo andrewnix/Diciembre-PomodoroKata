@@ -31,9 +31,13 @@ class Pomodoro
         void setAddInterrup();
         void setMinusTime();
 
+        void setPause(bool);
+        bool getPause();
+
     private:
         int time;
         int interrupciones;
+        bool pausa;
 };
 
 
@@ -183,3 +187,15 @@ int Pomodoro::getTime()
 */
 int Pomodoro::getInterrup()
 { return interrupciones; }
+
+/*
+ * set the value for atribute pause
+*/
+void Pomodoro::setPause(bool elec)
+{ pausa = elec; }
+
+/*
+ * get value of atribute pause
+*/
+bool Pomodoro::getPause()
+{ return pausa; }
