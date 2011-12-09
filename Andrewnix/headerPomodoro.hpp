@@ -18,21 +18,39 @@ class Pomodoro
         Pomodoro();
         ~Pomodoro();
 
-        string start(int);
-        string start();
-        string stop();
-        string pause();
+        void start(int);
+        void start();
+        void stop();
+        void pause();
+        /*void resume();*/
 
-        void setTime(int);
-        void setInterrup(int);
-        int getInterrup();
-        int getTime();
+        /*
+         * setTime(): establece el valor para el atributo time
+         * getTime(): devuelve el valor del atributo time
+        */
+        void setTime(int minutos) { time = minutos; };
+        int getTime() { return time; }
 
-        void setAddInterrup();
-        void setMinusTime();
+        /*
+         * setInterrup(): establece el valor para el atributo interrupciones
+         * getInterrup(): devuelve el valor del atributo interrupciones
+        */
+        void setInterrup(int paramInter) { interrupciones = paramInter; }
+        int getInterrup() { return interrupciones; }
 
-        void setPause(bool);
-        bool getPause();
+        /*
+         * setAddInterrup(): aumenta en uno el valor del atributo interrupciones
+         * setMinusTime(): disminuye en uno el valor del atributo time
+        */
+        void setAddInterrup() { interrupciones++; }
+        void setMinusTime() { time--; }
+
+        /*
+         * setPause(): establece el valor para el atributo pausa
+         * getpause(): devuelve el valor del atributo pausa
+        */
+        void setPause(bool elec) { pausa = elec; }
+        bool getPause() { return pausa; }
 
     private:
         int time;
@@ -63,7 +81,7 @@ Pomodoro::~Pomodoro()
 /*
  * Arranca en pomodoro recibiendo un argumento por parte del usuario
 */
-string Pomodoro::start(int minutos)
+void Pomodoro::start(int minutos)
 {
     setTime(minutos);
 
@@ -77,15 +95,13 @@ string Pomodoro::start(int minutos)
     sleep(1);
 
     endwin();
-
-    return "Pomodoro corriendo!!!";
 }
 
 
 /*
  * Arranca pomodoro con el valor por defecto que es 25
 */
-string Pomodoro::start()
+void Pomodoro::start()
 {
     initscr();
     erase();
@@ -97,16 +113,13 @@ string Pomodoro::start()
     sleep(1);
 
     endwin();
-
-
-    return "Pomodoro corriendo!!!";
 }
 
 
 /*
  * Detiene el pomodoro, restaurando lo valores por defecto
 */
-string Pomodoro::stop()
+void Pomodoro::stop()
 {
     setTime(25);
     setInterrup(0);
@@ -120,15 +133,13 @@ string Pomodoro::stop()
     sleep(1);
 
     endwin();
-
-    return "Pomodoro detenido!!!";
 }
 
 
 /*
  * Pausa el pomodoro aumentando el numero de interrupciones en 1
 */
-string Pomodoro::pause()
+void Pomodoro::pause()
 {
     setAddInterrup();
 
@@ -142,60 +153,4 @@ string Pomodoro::pause()
     sleep(1);
 
     endwin();
-
-    return "Pomodoro pausado!!!";
 }
-
-
-/*
- * Establece los minutos para el pomodoro
-*/
-void Pomodoro::setTime(int minutos)
-{ time = minutos; }
-
-
-/*
- * Disminuye en uno el atributo "time"
-*/
-void Pomodoro::setMinusTime()
-{ time--; }
-
-
-/*
- * Establece el numero de interrupciones que lleva en el pomodoro
-*/
-void Pomodoro::setInterrup(int paramInter)
-{ interrupciones = paramInter; }
-
-
-/*
- * Aumenta en uno el atributo "interrupciones"
-*/
-void Pomodoro::setAddInterrup()
-{ interrupciones++; }
-
-
-/*
- * Devuelve el tiempo del pomodoro
-*/
-int Pomodoro::getTime()
-{ return time; }
-
-
-/*
- * Devuelve el numero de interrupciones que se llevan
-*/
-int Pomodoro::getInterrup()
-{ return interrupciones; }
-
-/*
- * set the value for atribute pause
-*/
-void Pomodoro::setPause(bool elec)
-{ pausa = elec; }
-
-/*
- * get value of atribute pause
-*/
-bool Pomodoro::getPause()
-{ return pausa; }

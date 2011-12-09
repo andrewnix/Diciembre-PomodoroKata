@@ -11,12 +11,6 @@
 
 using namespace std;
 
-/*
- * --codigo de andamiaje--
- * haciendo pruebas del funcionamiento de la clase
- * Pomodoro y de la funcion sleep() en linux
- * --codigo de andamiaje--
-*/
 int main()
 {
     Pomodoro p1;
